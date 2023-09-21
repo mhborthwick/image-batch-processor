@@ -1,7 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/mhborthwick/image-batch-processor/pkg/processor"
+)
 
 func main() {
-	fmt.Printf("Yo!")
+	inputDir := "~/input"
+	outputDir := "~/output"
+	err := processor.ProcessImgsInBatch(inputDir, outputDir)
+	if err != nil {
+		fmt.Println("Error", err)
+	} else {
+		fmt.Println("Success, your new images are in ", outputDir)
+	}
 }
